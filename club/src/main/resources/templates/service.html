@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Services Listing</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../css/style.css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<header th:insert="fragments/general.html :: header"></header>
+<div th:replace="fragments/general.html :: menu"></div>
+
+<br>
+<!-- Add Hyperlink -->
+<h4><b><i><a href="AddService.html" th:href="@{/service/add}">Add New Service</a></i></b></h4>
+<br>
+
+<h2 th:if="${not #lists.isEmpty(service)}">Services List</h2>
+<table class="table table-bordered table-sm">
+    <tr>
+        <thead class="thead-dark">
+        <th></th>
+        <th>Service Type</th>
+        <th>Service Description</th>
+        <th>To Edit</th>
+       <!-- <th>To Delete</th>-->
+    </tr>
+    </thead>
+    <tr th:each="service:${service}">
+
+        <td th:field=${service.serviceId} th:type="hidden"></td>
+        <td th:text=${service.serviceType}>Service Name</td>
+        <td th:text=${service.description}>Service Description</td>
+    <td><a href="EditService.html"
+           th:href="@{/service/edit/}+${service.serviceId} "style="color: darkred">Edit</a></td>
+   <!-- <td><a href="DeleteService.html"
+           th:href="@{/service/delete/}+${service.serviceId} "style="color: darkred">Delete</a></td>-->
+
+</tr>
+</table>
+
+<br/>
+<div th:replace="fragments/general.html :: footer"></div>
+</body>
+</html>

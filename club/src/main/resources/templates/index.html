@@ -1,14 +1,21 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Facility Booking System</title>
-<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+    <title>Customer Records System</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-	<header th:insert="fragments/general.html :: header"> </header>
-	<div th:replace="fragments/general.html :: menu"></div>
-	<div align="center">
-		<img alt="" th:src="@{/image/image.png}" />
-	</div>
-	<div th:replace="fragments/general.html :: footer"></div>
+<header th:insert="fragments/general.html :: header"></header>
+<div th:replace="fragments/general.html :: menu"></div>
+<div align="center">
+    <img alt="" th:src="@{/image/image.png}"/>
+</div>
+
+<div th:replace="fragments/general.html :: footer"></div>
+<div align="center">
+    <img alt="" th:src="@{/image/Main.jpg}"/>
+</div>
+
+
+
 </body>
 </html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Service Form</title>
+    <link rel="stylesheet" type="text/css" media="all"
+          href="../../css/style.css" th:href="@{/css/style.css}"/>
+    <header th:insert="fragments/general.html :: header"></header>
+</head>
+<body>
+<br>
+<h2>Service Update Form</h2>
+<br>
+<form class="text-center border border-light p-5" action="#" th:object="${service}" th:action="@{/service/save}"
+      method="post">
+
+    <input type="hidden" th:field="*{serviceId}">
+
+    <div class="form-row mb-4">
+        <div class="col form-group">
+            <label class="form-label" style="background-color: hotpink" for="serviceType">Service Type</label>
+            <input type="text" id="serviceType" class="form-control" th:field="*{serviceType}" required>
+            <p class="text-danger text-left" th:if="${#fields.hasErrors('serviceType')}" th:errors="*{serviceType}"></p>
+        </div>
+    </div>
+
+    <div class="form-row mb-4">
+        <div class="col form-group">
+            <label class="form-label" style="background-color: hotpink" for="description">Service Description</label>
+            <input type="text" id="description" class="form-control" th:field="*{description}" required>
+            <p class="text-danger text-left" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></p>
+        </div>
+    </div>
+
+    <button class="btn btn-info my-4 btn-block" type="submit">Save</button>
+    <button class="btn btn-info my-4 btn-block" type="reset">Clear</button>
+
+</form>
+
+<div th:replace="fragments/general.html :: footer"></div>
+</body>
+</html>
